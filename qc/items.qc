@@ -1756,7 +1756,7 @@ local float		best;
       else if (self.classname == "item_artifact_envirosuit")
         self.nextspawntime = time + 60;
       else
-        self.nextspawntime = time + 120; //Ry: Powerup respawn time extended since now the powerups will stay in play for longer
+        self.nextspawntime = time + 60; //Ry: Powerup respawn time extended since now the powerups will stay in play for longer
 
       self.pickorigin = self.origin;
       PrepareItemRespawn(self.nextspawntime); //Ry: Now also sets up a ghost for the item when close to spawning
@@ -1996,7 +1996,7 @@ void() item_artifact_super_damage =
 	self.netname = "Quad Damage";
 	self.items = IT_QUAD;
   if (deathmatch) //Ry: Unused for this item type currently
-    self.respawntime = 120;
+    self.respawntime = 60;
 	setsize (self, '-16 -16 -24', '16 16 32');
   self.itemeffect = EF_QUADLIGHT; //Ry: New light for powerup
 	StartItem ();

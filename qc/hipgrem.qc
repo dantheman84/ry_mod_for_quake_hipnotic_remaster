@@ -445,7 +445,7 @@ void(float dist) gremlin_walk =
        self.currentammo = 0;
        self.stoleweapon = FALSE;
      }
-	movedist = dist;
+	movedist = dist * 2;
 
 	// check for noticing a player
    if (GremlinFindTarget ())
@@ -497,7 +497,7 @@ void(float dist) gremlin_run =
       {  // do damage
       T_Damage (self, world, world, 2000);
       }
-   movedist = dist;
+   movedist = dist * 2;
    if (self.stoleweapon)
    {
       self.frame = self.frame + $grun1.asc - $run1.asc;
@@ -1673,7 +1673,7 @@ void() Gremlin_FireSuperShotGun =
    dir = dir + crandom()* 0.3 *v_right + crandom()* 0.3 *v_up;
    dir = normalize(dir);
    self.v_angle = vectoangles(dir);
-   FireBullets (14, dir, '0.14 0.08 0');
+   FireBullets (40, dir, '0.14 0.14 0');
 };
 
 /*
@@ -1911,8 +1911,8 @@ void() monster_gremlin =
    setmodel (self, "progs/grem.mdl");
 
    setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
-   self.health = 100;
-   self.max_health = 101;
+   self.health = 200;
+   self.max_health = 201;
    self.yaw_speed = 40;
 
    self.th_stand = gremlin_stand1;
@@ -2057,7 +2057,7 @@ void(float side)  Gremlin_Melee =
 		return;
 
     sound (self, CHAN_WEAPON, "grem/attack.wav", 1, ATTN_NORM);
-	ldmg = 10 + 5*random();
+	ldmg = 120 + 5*random();
 	T_Damage (self.enemy, self, self, ldmg);
 
 	makevectors (self.angles);
