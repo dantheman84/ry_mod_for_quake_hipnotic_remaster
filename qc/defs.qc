@@ -341,6 +341,7 @@ vector	VEC_HULL2_MIN = '-32 -32 -24';
 vector	VEC_HULL2_MAX = '32 32 64';
 
 // protocol bytes
+float	SVC_SETVIEWPORT		= 5; 
 float	SVC_TEMPENTITY		= 23;
 float	SVC_KILLEDMONSTER	= 27;
 float	SVC_FOUNDSECRET		= 28;
@@ -778,3 +779,11 @@ void(entity targ, entity inflictor, entity attacker, float damage) T_Damage;
 float (entity e, float healamount, float ignore) T_Heal; // health function
 
 float(entity targ, entity inflictor) CanDamage;
+
+//Spectate defs
+
+.float	spectator;
+float	SPEC_FREEMOVE 	= 2;
+float	SPEC_EYECAM	  	= 4;	
+.float	spec_thinktime;	
+float IMPULSE_SPECTATOREND 	= 200;

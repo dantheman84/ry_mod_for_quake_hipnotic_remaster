@@ -11,6 +11,7 @@ combat.qc
 items.qc
 weapons.qc
 world.qc
+spectate.qc		// R00k: Modified from QuakeWorld GPL
 client.qc
 player.qc
 monsters.qc

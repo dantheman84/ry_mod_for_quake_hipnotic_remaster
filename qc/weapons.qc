@@ -2526,6 +2526,10 @@ ImpulseCommands
 
 ============
 */
+void () SpectatorStart;
+void() SpectatorDisconnect;
+
+
 void() ImpulseCommands =
 {
 	if (self.impulse >= 1 && self.impulse <= 8)
@@ -2566,6 +2570,27 @@ void() ImpulseCommands =
       ProbeEntityData();
    if (self.impulse == 255)
 		QuadCheat ();
+   if (self.impulse == 220)
+	{
+		//if ((coop)||(deathmatch))
+		{
+			SpectatorStart(); 
+		}
+	}
+
+   if (self.impulse == 221)
+	{
+	//if ((coop) || (deathmatch))
+		{
+			SpectatorDisconnect();
+			//reset the viewport
+			msg_entity = self;
+			WriteByte(MSG_ONE, SVC_SETVIEWPORT);
+			WriteEntity(MSG_ONE, self);
+			PutClientInServer();
+		}
+	}		
+				
    if (dump_coord == 1)
       DumpCoordinates();
 

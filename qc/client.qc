@@ -6,6 +6,7 @@ void() player_pain;
 void() player_stand1;
 void (vector org) spawn_tfog;
 void (vector org, entity death_owner) spawn_tdeath;
+void () SpectatorStart;//R00k
 
 void(entity item) UpdateItemTransparency; //Ry: Added reference here
 
@@ -1831,6 +1832,12 @@ void() PlayerPreThink =
 
 	if (self.view_ofs == '0 0 0')
 		return;		// intermission or finale
+		
+	if (self.spectator & (SPEC_FREEMOVE|SPEC_EYECAM))
+	{
+		SpectatorThink();
+		return;
+	}
   
   self.deathtype = ""; //Ry: Ensure these are reset between frames
   self.axhitme = 0;
@@ -2252,6 +2259,12 @@ void() PlayerPostThink =
       earthquake_postthink();
 //      }
 
+
+	if (self.spectator & (SPEC_FREEMOVE|SPEC_EYECAM))
+	{
+		return;
+	}
+
 	if (self.deadflag)
 		return;
 
@@ -2398,6 +2411,10 @@ void() ClientDisconnect =
   //  self.flags = self.flags - FL_CLIENT;
 	sound (self, CHAN_BODY, "player/tornoff2.wav", 1, ATTN_NONE);
 	set_suicide_frame ();
+	
+	
+	if (self.spectator & (SPEC_FREEMOVE|SPEC_EYECAM))
+		SpectatorDisconnect();
 };
 
 /*
