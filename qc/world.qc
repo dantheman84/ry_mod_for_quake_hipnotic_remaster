@@ -1,7 +1,7 @@
 
 void() InitBodyQue;
 //JIM
-void() InitBulletHoles;
+//void() InitBulletHoles;
 
 
 void() main =
@@ -203,7 +203,7 @@ void() worldspawn =
 	InitBodyQue ();
 
 //JIM
-   InitBulletHoles();
+  // InitBulletHoles();
 
 // custom map attributes
 	if (self.model == "maps/e1m8.bsp")

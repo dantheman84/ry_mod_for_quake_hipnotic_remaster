@@ -1,7 +1,7 @@
 /*
 */
 //JIM
-void( vector pos ) placebullethole;
+//void( vector pos ) placebullethole;
 void (entity targ, entity inflictor, entity attacker, float damage) T_Damage;
 void () player_run;
 void(entity bomb, entity attacker, float rad, entity ignore) T_RadiusDamage;
@@ -812,7 +812,7 @@ void(float shotcount, vector dir, vector spread) FireBullets =
 			TraceAttack (4, direction);
          if ( ( !bullet ) && ( trace_ent == world ) )
             {
-            placebullethole( trace_endpos );
+            //placebullethole( trace_endpos );
             bullet = 1;
             }
          }

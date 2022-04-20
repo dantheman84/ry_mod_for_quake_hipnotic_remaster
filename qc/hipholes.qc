@@ -10,7 +10,7 @@ Places a sprite on a wall.  Angles should be opposite of face.
 
 "model" sprite to place on wall.  Default is "progs/s_blood1.spr".
 */
-void() wallsprite =
+/*void() wallsprite =
    {
    if ( !self.model )
       {
@@ -111,3 +111,4 @@ void( vector pos ) placebullethole =
    new.lastvictim = nullentity;
    lastbullet = new;
    };
+*/
